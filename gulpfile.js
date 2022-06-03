@@ -29,6 +29,10 @@ var fs = require("graceful-fs"),
 // For compat with older versions of Node.js.
 require("es6-promise").polyfill();
 
+
+// For compat with older versions of Node.js.
+require("es6-promise").polyfill();
+
 // To suppress memory leak warning from gulp.watch().
 require("events").EventEmitter.prototype._maxListeners = 100;
 
@@ -65,6 +69,11 @@ gulp.task("watch", function () {
             inputWatcher.on('change', function (watchedPath) {                
                 var isConcat = path.basename(assetGroup.outputFileName, path.extname(assetGroup.outputFileName)) !== "@";
                 if (isConcat)
+                    console.log("Asset file '" + watchedPath + "' was changed, rebuilding asset group with output '" + assetGroup.outputPath + "'.");
+                else
+                    console.log("Asset file '" + watchedPath + "' was changed, rebuilding asset group.");
+                
+                                if (isConcat)
                     console.log("Asset file '" + watchedPath + "' was changed, rebuilding asset group with output '" + assetGroup.outputPath + "'.");
                 else
                     console.log("Asset file '" + watchedPath + "' was changed, rebuilding asset group.");
