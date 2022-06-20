@@ -11,6 +11,8 @@ namespace OrchardCore.Themes.TheTheme
             serviceCollection.AddScoped<IResourceManifestProvider, ResourceManifest>();
             
             serviceCollection.AddScoped<IResourceManifestProvider, ResourceManifest>();
+            
+            serviceCollection.AddScoped<IResourceManifestProvider, ResourceManifest>();
         }
     }
 }
